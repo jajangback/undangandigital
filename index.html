@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Khitanan Anak Kami</title>
+<style>
+:root{--bg:#f8f4ef;--card:#fffdf9;--text:#3d3833;--muted:#81766d;--accent:#9b7653;--border:#e8ddd0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,"Times New Roman",serif;background:var(--bg);color:var(--text);line-height:1.7}
+#undangan{
+    display:none;
+}
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px 20px;
+    color:#fff;
+    overflow:hidden;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
+        url("foto/Photo2.jpeg") center center/cover no-repeat;
+    animation:zoom 18s ease-in-out infinite alternate;
+    z-index:0;
+}
+
+.hero-box{
+    position:relative;
+    z-index:2;
+}
+.hero-box{max-width:720px}.small{letter-spacing:4px;text-transform:uppercase;font-size:.78rem}
+h1{
+    font-size:clamp(3.3rem,10vw,6.5rem);
+    text-shadow:0 5px 20px rgba(0,0,0,.5);
+};font-weight:400;line-height:1.05;margin:18px 0}
+.names{
+    font-size:clamp(1.5rem,5vw,2.3rem);
+    text-shadow:0 2px 12px rgba(0,0,0,.6);
+}
+.btn{display:inline-block;border:0;background:var(--accent);color:#fff;padding:12px 24px;border-radius:30px;text-decoration:none;cursor:pointer;margin-top:24px}
+.section{padding:75px 20px}.container{max-width:900px;margin:auto}.center{text-align:center}
+.title{font-size:2rem;font-weight:400;margin-bottom:12px}.subtitle{color:var(--muted);max-width:650px;margin:0 auto 35px}
+.ornament{color:#c7a77d;font-size:1.6rem;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(80,55,35,.06)}
+
+.couple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.single-couple {
+    width: 100%;
+    text-align: center;
+}
+
+.single-couple h3 {
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.single-couple p {
+    margin: 0;
+}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.event h3{color:var(--accent);font-weight:400;font-size:1.45rem}
+.event p{margin-top:8px;color:var(--muted)}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:650px;margin:30px auto}
+.count{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 8px}
+.count strong{display:block;font-size:1.8rem;color:var(--accent)}.count span{font-size:.8rem;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.gallery img{width:100%;height:220px;object-fit:cover;border-radius:14px}
+iframe{width:100%;height:350px;border:0;border-radius:16px}
+form{max-width:650px;margin:auto}label{display:block;text-align:left;margin:14px 0 6px}
+input,textarea,select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#fff}
+textarea{min-height:110px;resize:vertical}
+footer{padding:40px 20px;text-align:center;background:#3d3833;color:#fff}
+@media(max-width:700px){.couple{grid-template-columns:1fr;gap:8px}.grid,.gallery{grid-template-columns:1fr}.gallery img{height:260px}.countdown{grid-template-columns:repeat(2,1fr)}iframe{height:280px}}
+.ananda{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #9b7653;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.single-couple h3{
+    font-size: 42px;
+    line-height: 1.2;
+    color: #9b7653;
+    font-family: "Georgia", serif;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.divider{
+    font-size: 24px;
+    color: #c7a77d;
+    margin: 12px 0;
+}
+
+.putra{
+    font-style: italic;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+#groomParents{
+    line-height: 1.8;
+    font-size: 17px;
+}@keyframes zoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.08);
+    }
+}
+#undangan{
+    display:none;
+    animation:fade .8s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+
+</head>
+<body>
+
+<!-- =========================================================
+     BAGIAN YANG PALING MUDAH DIEDIT
+     Ubah isi DATA di bawah ini saja.
+     ========================================================= -->
+<script>
+const DATA = {
+  namaPria: "Moch Rafka Alfarizki Alhusyn",
+  orangTuaPria: "Bapak Cucup & Ibu Veny Purwanti (Alm)",
+
+    tanggalTampil: "Minggu, 16 Agustus 2026",
+  tanggalCountdown: "2026-08-16T00:00:00+07:00",
+
+  akad: {
+    jam: "05.00 WIB - selesai",
+    tempat: "Klinik Khitan Rancakalong",
+    alamat: "Jl. Raya Rancakalong, Rancakalong, Kec. Rancakalong, Kabupaten Sumedang, Jawa Barat "
+  },
+
+  resepsi: {
+    jam: "09.00 - Selesai",
+    tempat: "Rumah Moch Rafka Alfarizki Alhusyn",
+    alamat: "Kp Babakan wangi Rt01/Rw14 Desa:Babakan peuteuy Kec:Cicalengka Kab:Bandung"
+  },
+
+  googleMaps: "https://maps.app.goo.gl/BdJUywzbsSQ9diYMA?g_st=aw",
+
+  // Ganti dengan nomor WhatsApp, contoh: 6281234567890
+  whatsapp: "6281324542579",
+
+  ucapanPembuka:
+    "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara Khitanan Anak kami."
+};
+
+</script>
+
+<section class="hero">
+  <div class="hero-box">
+    <div class="small">Undangan Khitanan</div>
+    <h1 id="heroNames"></h1>
+    <p class="names" id="heroDate"></p>
+    <button class="btn" onclick="bukaUndangan()">
+    Buka Undangan
+</button>
+  </div>
+</section>
+
+<main id="undangan">
+
+<section class="section center">
+<div class="container">
+  <div class="ornament">❦</div>
+  <h2 class="title">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
+  <p class="subtitle" id="opening"></p>
+  <div class="card couple">
+ <div class="single-couple">
+
+    <p class="ananda">Ananda</p>
+
+    <h3 id="groom"></h3>
+
+    <div class="divider">❦</div>
+
+    <p class="putra">Putra dari</p>
+
+    <p id="groomParents"></p>
+
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="section center">
+<div class="container">
+  <div class="ornament">✦</div>
+  <h2 class="title">Menuju Hari Bahagia</h2>
+  <p class="subtitle">Kami menantikan kehadiran dan doa restu Anda.</p>
+  <div class="countdown">
+    <div class="count"><strong id="days">0</strong><span>Hari</span></div>
+    <div class="count"><strong id="hours">0</strong><span>Jam</span></div>
+    <div class="count"><strong id="minutes">0</strong><span>Menit</span></div>
+    <div class="count"><strong id="seconds">0</strong><span>Detik</span></div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="center">
+    <div class="ornament">❧</div>
+    <h2 class="title">Detail Acara</h2>
+    <p class="subtitle">Catat tanggalnya dan jangan sampai terlewat.</p>
+  </div>
+  <div class="grid">
+    <div class="card event">
+      <h3>Khitanan</h3>
+      <p><b id="akadDate"></b><br><span id="akadJam"></span></p>
+      <p><span id="akadTempat"></span><br><span id="akadAlamat"></span></p>
+    </div>
+    <div class="card event">
+      <h3>Acara</h3>
+      <p><b id="resepsiDate"></b><br><span id="resepsiJam"></span></p>
+      <p><span id="resepsiTempat"></span><br><span id="resepsiAlamat"></span></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section center">
+<div class="container">
+  <div class="ornament">⌖</div>
+  <h2 class="title">Lokasi Acara</h2>
+  <p class="subtitle">Silakan klik tombol untuk membuka lokasi di Google Maps.</p>
+  <div class="card">
+     <iframe
+    src="https://www.google.com/maps?q=Cicalengka&output=embed"
+    width="100%"
+    height="350"
+    style="border:0; border-radius:16px;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+  <a class="btn" id="mapsButton" target="_blank">
+    Buka Google Maps
+  </a>
+
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="center">
+    <div class="ornament">♡</div>
+    <h2 class="title">Galeri</h2>
+    <p class="subtitle"><b>foto</b>.</p>
+  </div>
+  <div class="gallery">
+    <img src="foto/Photo1.jpeg" alt="Foto 1">
+    <img src="foto/Photo2.jpeg" alt="Foto 2">
+    <img src="foto/Photo3.jpeg" alt="Foto 3">
+    </div>
+</div>
+</section>
+
+<section class="section center">
+<div class="container">
+  <div class="ornament">♡</div>
+  <h2 class="title">RSVP &amp; Ucapan</h2>
+  <p class="subtitle">Konfirmasi kehadiran dan kirim ucapan melalui WhatsApp.</p>
+  <form onsubmit="kirimWhatsApp(event)" class="card">
+    <label>Nama</label>
+    <input id="nama" required placeholder="Nama Anda">
+    <label>Kehadiran</label>
+    <select id="status">
+      <option>Hadir</option>
+      <option>Tidak dapat hadir</option>
+      <option>Masih belum pasti</option>
+    </select>
+    <label>Ucapan</label>
+    <textarea id="ucapan" placeholder="Tulis ucapan dan doa..."></textarea>
+    <button class="btn" type="submit">Kirim via WhatsApp</button>
+  </form>
+</div>
+</section>
+
+<section class="section center">
+<div class="container card">
+  <div class="ornament">❦</div>
+  <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir</p>
+  <br><p><b>Wassalamu'alaikum Warahmatullahi Wabarakatuh</b></p>
+  <br><p id="closingNames"></p>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <p>Terima kasih atas doa dan perhatian Anda.</p>
+  <p style="margin-top:8px;font-size:.8rem;opacity:.75">Undangan Digital</p>
+  
+</footer>
+
+<audio id="musik" loop>
+    <source src="musik.mp3" type="audio/mpeg">
+</audio>
+<script>
+document.getElementById("heroNames").textContent = DATA.namaPria 
+document.getElementById("heroDate").textContent = DATA.tanggalTampil;
+document.getElementById("opening").textContent = DATA.ucapanPembuka;
+document.getElementById("groom").innerHTML =
+"Moch Rafka<br>Alfarizki Alhusyn";
+document.getElementById("groomParents").textContent = DATA.orangTuaPria;
+document.getElementById("akadDate").textContent = DATA.tanggalTampil;
+document.getElementById("akadJam").textContent = DATA.akad.jam;
+document.getElementById("akadTempat").textContent = DATA.akad.tempat;
+document.getElementById("akadAlamat").textContent = DATA.akad.alamat;
+document.getElementById("resepsiDate").textContent = DATA.tanggalTampil;
+document.getElementById("resepsiJam").textContent = DATA.resepsi.jam;
+document.getElementById("resepsiTempat").textContent = DATA.resepsi.tempat;
+document.getElementById("resepsiAlamat").textContent = DATA.resepsi.alamat;
+document.getElementById("mapsButton").href = DATA.googleMaps;
+document.getElementById("closingNames").textContent = DATA.namaPria + "  " 
+const target = new Date(DATA.tanggalCountdown).getTime();
+function countdown(){
+  const d = target - Date.now();
+  if(d <= 0){
+    ["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).textContent="0");
+    return;
+  }
+  document.getElementById("days").textContent=Math.floor(d/86400000);
+  document.getElementById("hours").textContent=Math.floor((d%86400000)/3600000);
+  document.getElementById("minutes").textContent=Math.floor((d%3600000)/60000);
+  document.getElementById("seconds").textContent=Math.floor((d%60000)/1000);
+}
+countdown(); setInterval(countdown,1000);
+function bukaUndangan(){
+    document.getElementById("undangan").style.display="block";
+    document.getElementById("undangan").scrollIntoView({behavior:"smooth"});
+    document.body.style.overflow="auto";
+    const musik=document.getElementById("musik");
+    if(musik){
+        musik.currentTime=0;
+        musik.play().catch(console.error);
+    }
+}
+function kirimWhatsApp(e){
+  e.preventDefault();
+  const nama=document.getElementById("nama").value;
+  const status=document.getElementById("status").value;
+  const ucapan=document.getElementById("ucapan").value;
+  const pesan=`Halo, saya ${nama}.\n\nKonfirmasi kehadiran: ${status}.\n\nUcapan:\n${ucapan}`;
+  window.open(`https://wa.me/${DATA.whatsapp}?text=${encodeURIComponent(pesan)}`,"_blank");
+}
+</script>
+
+</body>
+</html>
